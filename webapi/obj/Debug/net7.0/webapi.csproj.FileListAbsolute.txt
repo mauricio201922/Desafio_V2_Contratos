@@ -77,3 +77,4 @@ C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\
 C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\webapi.staticwebassets.runtime.json

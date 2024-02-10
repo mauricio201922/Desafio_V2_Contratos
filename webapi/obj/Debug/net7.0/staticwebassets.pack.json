@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ADM\\OneDrive\\Área de Trabalho\\Desafio concilig\\Desafio_V2_Contratacao\\webapi\\wwwroot\\contratos.csv",
+      "PackagePath": "staticwebassets\\contratos.csv"
+    },
+    {
+      "Id": "C:\\Users\\ADM\\OneDrive\\Área de Trabalho\\Desafio concilig\\Desafio_V2_Contratacao\\webapi\\wwwroot\\contratos2.csv",
+      "PackagePath": "staticwebassets\\contratos2.csv"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.webapi.props",
+      "PackagePath": "build\\webapi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.webapi.props",
+      "PackagePath": "buildMultiTargeting\\webapi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.webapi.props",
+      "PackagePath": "buildTransitive\\webapi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.webapi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

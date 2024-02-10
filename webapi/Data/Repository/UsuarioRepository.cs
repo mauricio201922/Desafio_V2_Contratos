@@ -15,6 +15,10 @@ namespace webapi.Data.Repository
         {
             return _context.Usuarios.First(x => x.Name == userName);
         }
+        public int GetUsuarioIdByUserName(string userName)
+        {
+            return _context.Usuarios.First(x => x.Name == userName).Id;
+        }
         public void AddNewUsuario(string userName)
         {
             _context.Usuarios.Add(new Usuarios

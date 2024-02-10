@@ -5,7 +5,7 @@ namespace webapi.Services.Statics
 {
     public static class FileRead
     {
-        public static List<Contratos> LerArquivoCsv(string caminhoArquivo)
+        public static List<Contratos> LerArquivoCsv(string caminhoArquivo, int usuarioId)
         {
             var contratos = new List<Contratos>();
             int indexAtual = 0;
@@ -26,7 +26,7 @@ namespace webapi.Services.Statics
                             Produto = fields[3],
                             Vencimento = fields[4],
                             Valor = Convert.ToDouble(fields[5]),
-                            UsuarioId = 1
+                            UsuarioId = usuarioId
                         });
                     }
                     indexAtual++;

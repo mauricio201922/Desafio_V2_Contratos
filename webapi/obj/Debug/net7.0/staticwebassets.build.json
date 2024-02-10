@@ -1,11 +1,54 @@
 {
   "Version": 1,
-  "Hash": "qWIDttiHurVt0W82xiTX0A7xgYJ9/MKKTQaaiKq7axg=",
+  "Hash": "Py5sj2jDr5Q5jRDYmJUgcukl/gHkeypUwg2LDlcgpcg=",
   "Source": "webapi",
   "BasePath": "_content/webapi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "webapi\\wwwroot",
+      "Source": "webapi",
+      "ContentRoot": "C:\\Users\\ADM\\OneDrive\\Área de Trabalho\\Desafio concilig\\Desafio_V2_Contratacao\\webapi\\wwwroot\\",
+      "BasePath": "_content/webapi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\ADM\\OneDrive\\Área de Trabalho\\Desafio concilig\\Desafio_V2_Contratacao\\webapi\\wwwroot\\contratos.csv",
+      "SourceId": "webapi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADM\\OneDrive\\Área de Trabalho\\Desafio concilig\\Desafio_V2_Contratacao\\webapi\\wwwroot\\",
+      "BasePath": "_content/webapi",
+      "RelativePath": "contratos.csv",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\contratos.csv"
+    },
+    {
+      "Identity": "C:\\Users\\ADM\\OneDrive\\Área de Trabalho\\Desafio concilig\\Desafio_V2_Contratacao\\webapi\\wwwroot\\contratos2.csv",
+      "SourceId": "webapi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADM\\OneDrive\\Área de Trabalho\\Desafio concilig\\Desafio_V2_Contratacao\\webapi\\wwwroot\\",
+      "BasePath": "_content/webapi",
+      "RelativePath": "contratos2.csv",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\contratos2.csv"
+    }
+  ]
 }

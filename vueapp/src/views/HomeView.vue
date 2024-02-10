@@ -1,9 +1,13 @@
 <template>
     <div class="container">
         <div class="custom-filter">
-            <input type="text" id="search" v-model="search" placeholder="Nome ou Contrato" />
-            <select v-model="produto">
-                <option :value="null">Selecione...</option>
+            <select v-model="arquivo" style="width: 150px;">
+                <option style="color: black;" :value="null">Selecione...</option>
+                <option style="color: black;" 
+                    v-for="item in dataFiles" 
+                    :value="item.path">
+                    {{ item.path.split('\\').reverse()[0] }}
+                </option>
             </select>
             <button @click="Buscar" class="custom-button">Buscar</button>
 
@@ -40,6 +44,20 @@
                     </tr>
                 </tbody>
             </table>
+            <table style="margin-top: 8px;">
+                <thead>
+                    <tr>
+                        <th>Path</th>
+                        <th>Usuário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in dataFiles">
+                        <td>{{ item.path }}</td>
+                        <td>{{ item.usuario.name }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </template>
@@ -54,7 +72,9 @@
                 search: "",
                 produto: null,
                 userName: null,
-                token: null
+                token: null,
+                dataFiles: null,
+                arquivo: null
             };
         },
         created() {
@@ -69,16 +89,25 @@
             '$route': 'fetchData'
 
         },
+        computed: {
+            menorDataFunc() {
+                
+            }
+        },
         methods: {
             fetchData() {
                 this.post = null;
-                this.loading = true;
 
                 fetch('https://localhost:7252/api/Contratos/GetAllContratos', { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
                     .then(r => r.json())
                     .then(json => {
+                        fetch('https://localhost:7252/api/Contratos/GetFileContratos', { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } })
+                            .then(r => r.json())
+                            .then(json => {
+                                this.dataFiles = json;
+                                return;
+                            });
                         this.post = json;
-                        this.loading = false;
                         return;
                     });
             },
@@ -98,12 +127,29 @@
             async submitFile(e) {
                 var formdata = new FormData();
                 formdata.append("file", e.target.files[0]);
-                fetch(`https://localhost:7252/api/Contratos/PostFile`, {body: formdata, method: 'POST', headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }})
+                fetch(`https://localhost:7252/api/Contratos/PostFile/${localStorage.getItem("userName")}`, {body: formdata, method: 'POST', headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }})
                     .then(response => response.json())
                     .then(r => {
-                        console.log(r)
+                        this.post = r;
                         return;
                     });
+            },
+            Buscar() {
+                if (this.arquivo != null) {
+                    var formdata = new FormData();
+                    formdata.append("path", this.arquivo.toString());
+                    console.log(this.arquivo.toString())
+                    fetch(`https://localhost:7252/api/Contratos/GetFileContratos`, { body: formdata, headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }, method: 'POST' })
+                            .then(r => r.json())
+                            .then(json => {
+                                this.dataFiles = json;
+                                this.arquivo == null
+                                return;
+                            });
+                }
+                else {
+                    this.fetchData()
+                }
             }
         },
     };

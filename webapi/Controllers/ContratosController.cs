@@ -14,9 +14,13 @@ namespace webapi.Controllers
     public class ContratosController : ControllerBase
     {
         private readonly IContratosRepository _contratosRepository;
-        public ContratosController(IContratosRepository contratosRepository)
+        private readonly IUsuarioRepository _usuarioRepository;
+        private IWebHostEnvironment _hostEnvironment;
+        public ContratosController(IContratosRepository contratosRepository, IWebHostEnvironment hostEnvironment, IUsuarioRepository usuarioRepository)
         {
             _contratosRepository = contratosRepository;
+            _hostEnvironment = hostEnvironment;
+            _usuarioRepository = usuarioRepository;
         }
 
         [HttpGet("GetAllContratos")]
@@ -25,18 +29,37 @@ namespace webapi.Controllers
             return Ok(_contratosRepository.GetAll());
         }
 
-        [HttpPost("PostFile")]
-        public async Task<IActionResult> PostFile(IFormFile file)
+        [HttpGet("GetFileContratos")]
+        public IActionResult GetFileContratos()
         {
-            var filePath = Path.GetTempFileName();
-            using (var stream = System.IO.File.Create(filePath))
+            return Ok(_contratosRepository.GetFileContratos());
+        }
+        
+        [HttpPost("GetFileContratos")]
+        public IActionResult GetFileContratos([FromForm] string path)
+        {
+            return Ok(_contratosRepository.GetFileContratosByPath(path));
+        }
+
+        [HttpPost("PostFile/{userName}")]
+        public async Task<IActionResult> PostFile(IFormFile file, string userName)
+        {
+            userName = userName.ToUpper();
+            string path = Path.Combine(_hostEnvironment.WebRootPath, file.FileName);
+            
+            using (var stream = System.IO.File.Create(path))
             {
                 await file.CopyToAsync(stream);
             }
-            List<Contratos> contratos = FileRead.LerArquivoCsv(filePath);
+            if (!_contratosRepository.HasFileContratoInPath(path))
+            {
+                List<Contratos> contratos = FileRead.LerArquivoCsv(path, _usuarioRepository.GetUsuarioIdByUserName(userName));
 
-            await _contratosRepository.SalvarDadosContratos(contratos);
-            return Ok(contratos);
+                await _contratosRepository.SalvarDadosContratos(contratos, _usuarioRepository.GetUsuarioIdByUserName(userName), path);
+                return Ok(contratos);
+            }
+
+            return Ok();
         }
     }
 }

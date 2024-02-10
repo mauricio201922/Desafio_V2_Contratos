@@ -11,7 +11,7 @@ using webapi.Context;
 namespace webapi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240210152941_first_migration")]
+    [Migration("20240210163814_first_migration")]
     partial class firstmigration
     {
         /// <inheritdoc />
@@ -62,6 +62,28 @@ namespace webapi.Migrations
                     b.ToTable("Contratos");
                 });
 
+            modelBuilder.Entity("webapi.Models.Files", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Files");
+                });
+
             modelBuilder.Entity("webapi.Models.Usuarios", b =>
                 {
                     b.Property<int>("Id")
@@ -77,6 +99,17 @@ namespace webapi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("webapi.Models.Files", b =>
+                {
+                    b.HasOne("webapi.Models.Usuarios", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
                 });
 #pragma warning restore 612, 618
         }
