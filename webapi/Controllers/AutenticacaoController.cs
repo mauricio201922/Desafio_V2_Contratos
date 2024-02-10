@@ -8,7 +8,7 @@ using webapi.Services.Interfaces;
 namespace webapi.Controllers
 {
     [ApiController, Route("api/[controller]")]
-    public class AutenticacaoController : Controller
+    public class AutenticacaoController : ControllerBase
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IJwtService _jwtService;

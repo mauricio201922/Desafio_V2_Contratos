@@ -4,22 +4,20 @@
 
 <template>
   <div>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HomeView msg="You did it!" />
+      <HomeView/>
     </div>
   </div>
 </template>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 header {
   line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
 }
 
 @media (min-width: 1024px) {

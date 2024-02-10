@@ -72,3 +72,8 @@ C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\
 C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\JWT.dll
 C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\Humanizer.dll
+C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\ADM\OneDrive\Área de Trabalho\Desafio concilig\Desafio_V2_Contratacao\webapi\bin\Debug\net7.0\System.CodeDom.dll

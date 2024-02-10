@@ -17,7 +17,7 @@ namespace webapi.Data.Repository
         }
         public void AddNewUsuario(string userName)
         {
-            _context.Add(new Usuarios
+            _context.Usuarios.Add(new Usuarios
             {
                 Name = userName,
             });

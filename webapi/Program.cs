@@ -48,7 +48,19 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddTransient<ApplicationContext, ApplicationContext>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IContratosRepository, ContratosRepository>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        build =>
+        {
+            build.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
 
 var app = builder.Build();
 
@@ -58,6 +70,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowAllOrigins");
 
 app.UseHttpsRedirection();
 
